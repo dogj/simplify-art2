@@ -10,9 +10,30 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="517dp"
+        android:layout_height="257dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:layout_editor_absoluteY="50dp" />
+
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_navigation_bar"
+        android:layout_below="@+id/recyclerView"
+        app:layout_anchor="@+id/recyclerView"
+        app:layout_anchorGravity="bottom|center">
+
+    </FrameLayout>
+
+
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:id="@+id/bottom_navigation_bar"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 
     <android.support.design.widget.AppBarLayout
@@ -26,8 +47,6 @@
             android:layout_height="?actionBarSize"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:title="@string/app_name"
-            android:layout_marginStart="180dp"
-
             />
 
     </android.support.design.widget.AppBarLayout>

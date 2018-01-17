@@ -14,12 +14,13 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
 ext {
     compileSdkVersion = 27
     targetSdkVersion = compileSdkVersion
-    minSdkVersion = 14
+    minSdkVersion = 15
     supportLibVersion = '27.0.2'
 }

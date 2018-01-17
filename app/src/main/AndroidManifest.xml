@@ -18,7 +18,8 @@
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".Original_home" />
-        <activity android:name=".ImageDetail"></activity>
+        <activity android:name=".ImageDetail" />
+        <activity android:name=".Message"></activity>
     </application>
 
 </manifest>

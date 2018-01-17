@@ -55,7 +55,8 @@ public class Original_home extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
-            finish();
+            //inish();
+            onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item);
