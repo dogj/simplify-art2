@@ -21,16 +21,19 @@ import android.view.MenuItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
+import com.yanzhenjie.album.Album;
+import com.yanzhenjie.album.AlbumConfig;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String ORIENTATION = "orientation";
 
-    private RecyclerView mRecyclerView;
-    private boolean mHorizontal;
+//    private RecyclerView mRecyclerView;
+//    private boolean mHorizontal;
 
     private BottomNavigationBar bottomNavigationBar;
     private ContentFragment contentFragment;
@@ -54,13 +57,13 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 .setActiveColor(R.color.green)//选中颜色 图标和文字
 //                .setInActiveColor("#8e8e8e")//默认未选择颜色
                 .setBarBackgroundColor("#ECECEC");//默认背景色
-
+        bottomNavigationBar.setAutoHideEnabled(false);
 
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.drawable.weixin_pressed,"Home").setInactiveIconResource(R.drawable.weixin_normal))
                 .addItem(new BottomNavigationItem(R.drawable.contact_list_pressed,"Contact").setInactiveIconResource(R.drawable.contact_list_normal))
-                .addItem(new BottomNavigationItem(R.drawable.find_pressed,"Favourity").setInactiveIconResource(R.drawable.find_normal))
-                .addItem(new BottomNavigationItem(R.drawable.profile_pressed,"My settings").setInactiveIconResource(R.drawable.profile_normal))
+                .addItem(new BottomNavigationItem(R.drawable.find_pressed,"Collection").setInactiveIconResource(R.drawable.find_normal))
+//                .addItem(new BottomNavigationItem(R.drawable.profile_pressed,"My settings").setInactiveIconResource(R.drawable.profile_normal))
 
 //                .addItem(new BottomNavigationItem(R.drawable.ic_favorite_white_24dp,"Like").setActiveColor().setInActiveColor())
 //                .addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp,"Home").setActiveColor().setInActiveColor())
@@ -133,7 +136,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
                 });
 
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+//        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.inflateMenu(R.menu.main);
         toolbar.setTitle("Simplify");
@@ -150,16 +153,16 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
 
 //        toolbar.setOnMenuItemClickListener(this);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setHasFixedSize(true);
-
-        if (savedInstanceState == null) {
-            mHorizontal = true;
-        } else {
-            mHorizontal = savedInstanceState.getBoolean(ORIENTATION);
-        }
-
-        setupAdapter();
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setHasFixedSize(true);
+//
+//        if (savedInstanceState == null) {
+//            mHorizontal = true;
+//        } else {
+//            mHorizontal = savedInstanceState.getBoolean(ORIENTATION);
+//        }
+//
+//        setupAdapter();
     }
 
     @Override
@@ -175,31 +178,31 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean(ORIENTATION, mHorizontal);
+//        outState.putBoolean(ORIENTATION, mHorizontal);
     }
 
-    private void setupAdapter() {
-        List<App> apps = getApps();
-        List<App> artists = getArtist();
-
-        SnapAdapter snapAdapter = new SnapAdapter();
-        if (mHorizontal) {
-            snapAdapter.addSnap(new Snap(Gravity.CENTER_HORIZONTAL, "Pcitures", apps));
-            snapAdapter.addSnap(new Snap(Gravity.START, "Artists", artists));
-            snapAdapter.addSnap(new Snap(Gravity.END, "Materials", apps));
-            snapAdapter.addSnap(new Snap(Gravity.CENTER, "Art type", apps));
-            mRecyclerView.setAdapter(snapAdapter);
-        } else {
-            Adapter adapter = new Adapter(false, false, apps);
-            mRecyclerView.setAdapter(adapter);
-            new GravitySnapHelper(Gravity.TOP, false, new GravitySnapHelper.SnapListener() {
-                @Override
-                public void onSnap(int position) {
-                    Log.d("Snapped", position + "");
-                }
-            }).attachToRecyclerView(mRecyclerView);
-        }
-    }
+//    private void setupAdapter() {
+//        List<App> apps = getApps();
+//        List<App> artists = getArtist();
+//
+//        SnapAdapter snapAdapter = new SnapAdapter();
+//        if (mHorizontal) {
+//            snapAdapter.addSnap(new Snap(Gravity.CENTER_HORIZONTAL, "Pcitures", apps));
+//            snapAdapter.addSnap(new Snap(Gravity.START, "Artists", artists));
+//            snapAdapter.addSnap(new Snap(Gravity.END, "Materials", apps));
+//            snapAdapter.addSnap(new Snap(Gravity.CENTER, "Art type", apps));
+//            mRecyclerView.setAdapter(snapAdapter);
+//        } else {
+//            Adapter adapter = new Adapter(false, false, apps);
+//            mRecyclerView.setAdapter(adapter);
+//            new GravitySnapHelper(Gravity.TOP, false, new GravitySnapHelper.SnapListener() {
+//                @Override
+//                public void onSnap(int position) {
+//                    Log.d("Snapped", position + "");
+//                }
+//            }).attachToRecyclerView(mRecyclerView);
+//        }
+//    }
 
     private List<App> getApps() {
         List<App> apps = new ArrayList<>();
@@ -263,13 +266,13 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         } else if (id == R.id.nav_gallery) {
             startActivity(new Intent(this, GridActivity.class));
         } else if (id == R.id.nav_slideshow) {
-
+            startActivity(new Intent(this, Message.class));
         } else if (id == R.id.nav_manage) {
-
+            startActivity(new Intent(this, Message_detail.class));
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
-
+            startActivity(new Intent(this, ImageSelect.class));
         }else if (id == R.id.login) {
             startActivity(new Intent(this, Login.class));
         }

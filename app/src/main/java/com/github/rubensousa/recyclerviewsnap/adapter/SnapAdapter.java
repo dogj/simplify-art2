@@ -1,4 +1,4 @@
-package com.github.rubensousa.recyclerviewsnap;
+package com.github.rubensousa.recyclerviewsnap.adapter;
 
 
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.github.rubensousa.gravitysnaphelper.GravityPagerSnapHelper;
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
+import com.github.rubensousa.recyclerviewsnap.R;
+import com.github.rubensousa.recyclerviewsnap.Snap;
 
 import java.util.ArrayList;
 

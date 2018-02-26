@@ -16,4 +16,7 @@
     <color name="titbar_color2">#00c3e8</color>
 
     <color name="titbar">#4675FF</color>
+    <color name="colorWhite">#FFF</color>
+    <color name="colorFont">#333</color>
+
 </resources>

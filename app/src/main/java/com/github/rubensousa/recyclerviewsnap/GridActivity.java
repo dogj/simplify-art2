@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
+import com.github.rubensousa.recyclerviewsnap.adapter.Adapter;
 
 import java.util.ArrayList;
 import java.util.List;

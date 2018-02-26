@@ -6,16 +6,20 @@
     android:layout_height="wrap_content">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/constraintLayout"
         android:layout_width="300dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
             android:id="@+id/face"
             android:layout_width="46dp"
             android:layout_height="46dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="236dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/bi" />
@@ -25,42 +29,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="220dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/common_chat_left"
-            android:text="TextView"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/common_chat_right"
+            android:text="TextView222"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/face"
+            app:layout_constraintEnd_toStartOf="@+id/face"
             app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="4dp"
             android:text="TextView"
             android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/face"
+            app:layout_constraintEnd_toStartOf="@+id/face"
             app:layout_constraintTop_toTopOf="parent" />
-
 
     </android.support.constraint.ConstraintLayout>
 
-
     <android.support.v7.widget.LinearLayoutCompat
         android:id="@+id/time_zone"
-        android:layout_width="69dp"
-        android:layout_height="43dp"
+        android:layout_width="52dp"
+        android:layout_height="44dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.842"
-        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
@@ -72,4 +70,8 @@
             android:text="7:05" />
 
     </android.support.v7.widget.LinearLayoutCompat>
+
+
+
+
 </android.support.constraint.ConstraintLayout>

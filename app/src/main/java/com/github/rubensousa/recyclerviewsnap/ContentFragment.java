@@ -1,20 +1,16 @@
 package com.github.rubensousa.recyclerviewsnap;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
-import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
+import com.github.rubensousa.recyclerviewsnap.adapter.SnapAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +64,7 @@ public class ContentFragment extends Fragment {
             snapAdapter.addSnap(new Snap(Gravity.END, "Materials", apps));
             snapAdapter.addSnap(new Snap(Gravity.CENTER, "Art type", apps));
             mRecyclerView.setAdapter(snapAdapter);
+
 
     }
 
