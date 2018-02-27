@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
+import com.github.rubensousa.recyclerviewsnap.test.ImageActivity;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.AlbumConfig;
 
@@ -270,6 +271,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         } else if (id == R.id.nav_manage) {
             startActivity(new Intent(this, Message_detail.class));
         } else if (id == R.id.nav_share) {
+            startActivity(new Intent(this, ImageActivity.class));
 
         } else if (id == R.id.nav_send) {
             startActivity(new Intent(this, ImageSelect.class));

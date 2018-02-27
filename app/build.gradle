@@ -37,4 +37,5 @@ dependencies {
     compile project(':reclib-qq')
     compile project(':reclib-testemoticons')
     compile 'com.yanzhenjie:album:2.0.2'
+
 }
