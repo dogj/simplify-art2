@@ -70,12 +70,8 @@ public class AdapterImage extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         switch (viewType) {
-            case AlbumFile.TYPE_IMAGE: {
-                return new ImageViewHolder(mInflater.inflate(R.layout.item_content_image, parent, false), itemSize, mItemClickListener);
-            }
-            case AlbumFile.TYPE_VIDEO:
             default: {
-                return new VideoViewHolder(mInflater.inflate(R.layout.item_content_image, parent, false), itemSize, mItemClickListener);
+                return new ImageViewHolder(mInflater.inflate(R.layout.item_content_image, parent, false), itemSize, mItemClickListener);
             }
         }
     }

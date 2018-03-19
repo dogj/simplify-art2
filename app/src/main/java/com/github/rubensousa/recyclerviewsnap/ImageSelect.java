@@ -44,14 +44,18 @@ public class ImageSelect extends AppCompatActivity {
         recyclerView.addItemDecoration(divider);
 
         int itemSize = (DisplayUtils.sScreenWidth - (divider.getWidth() * 4)) / 3;
+        Log.d("itemsize", "onCreate: "+itemSize);
         mAdapter = new AdapterImage(this, itemSize, new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 previewImage(position);
             }
         });
-        recyclerView.setAdapter(mAdapter);
 
+        RecyclerView.RecycledViewPool pool =recyclerView.getRecycledViewPool();
+        pool.setMaxRecycledViews(0,10);
+        recyclerView.setRecycledViewPool(pool);
+        recyclerView.setAdapter(mAdapter);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,7 +81,7 @@ public class ImageSelect extends AppCompatActivity {
                     @Override
                     public void onAction(int requestCode, @NonNull ArrayList<AlbumFile> result) {
                         mAlbumFiles = result;
-                        Toast.makeText(getApplicationContext(),result.toString(),Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(),result.toString(),Toast.LENGTH_SHORT).show();
                         mAdapter.notifyDataSetChanged(mAlbumFiles);
                         int a = mAdapter.getItemCount();
                         Log.d("forthecheck", "onAction: "+a);
@@ -103,6 +107,7 @@ public class ImageSelect extends AppCompatActivity {
                     .currentPosition(position)
                     .widget(
                             Widget.newDarkBuilder(this)
+                                    .title("Selected Images")
                                     .build()
                     )
                     .onResult(new Action<ArrayList<AlbumFile>>() {

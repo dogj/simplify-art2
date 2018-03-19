@@ -96,6 +96,9 @@ public class ImageActivity extends AppCompatActivity {
                 .onResult(new Action<ArrayList<AlbumFile>>() {
                     @Override
                     public void onAction(int requestCode, @NonNull ArrayList<AlbumFile> result) {
+                        if(mAlbumFiles == null) {
+                            mAlbumFiles = new ArrayList<>();
+                        }
                         mAlbumFiles = result;
                         Toast.makeText(getApplicationContext(),result.toString(), Toast.LENGTH_SHORT).show();
                         mAdapter.notifyDataSetChanged(mAlbumFiles);

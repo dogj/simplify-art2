@@ -41,13 +41,21 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     private ContentFragment2 contentFragment2;
     private ContentFragment3 contentFragment3;
     private ContentFragment4 contentFragment4;
-
+    private static MainActivity instance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (instance == null) {
+            instance = this;
 
+            Album.initialize(
+                    AlbumConfig.newBuilder(instance)
+                            .setLocale(Locale.getDefault())
+                            .build()
+            );
+        }
         bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
 
         setDefaultFragment();
